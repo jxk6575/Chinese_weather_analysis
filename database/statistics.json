@@ -1,0 +1,646 @@
+{
+    "monthly_top_cities": {
+        "2023-12": [
+            {
+                "city": "三亚市",
+                "province": "海南省",
+                "comfort_days": 25
+            },
+            {
+                "city": "海口市",
+                "province": "海南省",
+                "comfort_days": 21
+            },
+            {
+                "city": "深圳市",
+                "province": "广东省",
+                "comfort_days": 11
+            },
+            {
+                "city": "中山市",
+                "province": "广东省",
+                "comfort_days": 10
+            },
+            {
+                "city": "湛江市",
+                "province": "广东省",
+                "comfort_days": 10
+            }
+        ],
+        "2024-01": [
+            {
+                "city": "三亚市",
+                "province": "海南省",
+                "comfort_days": 28
+            },
+            {
+                "city": "海口市",
+                "province": "海南省",
+                "comfort_days": 22
+            },
+            {
+                "city": "湛江市",
+                "province": "广东省",
+                "comfort_days": 14
+            },
+            {
+                "city": "北海市",
+                "province": "广西壮族自治区",
+                "comfort_days": 8
+            },
+            {
+                "city": "珠海市",
+                "province": "广东省",
+                "comfort_days": 7
+            }
+        ],
+        "2024-02": [
+            {
+                "city": "三亚市",
+                "province": "海南省",
+                "comfort_days": 28
+            },
+            {
+                "city": "海口市",
+                "province": "海南省",
+                "comfort_days": 16
+            },
+            {
+                "city": "湛江市",
+                "province": "广东省",
+                "comfort_days": 14
+            },
+            {
+                "city": "珠海市",
+                "province": "广东省",
+                "comfort_days": 11
+            },
+            {
+                "city": "茂名市",
+                "province": "广东省",
+                "comfort_days": 11
+            }
+        ],
+        "2024-03": [
+            {
+                "city": "三亚市",
+                "province": "海南省",
+                "comfort_days": 31
+            },
+            {
+                "city": "海口市",
+                "province": "海南省",
+                "comfort_days": 26
+            },
+            {
+                "city": "湛江市",
+                "province": "广东省",
+                "comfort_days": 22
+            },
+            {
+                "city": "北海市",
+                "province": "广西壮族自治区",
+                "comfort_days": 19
+            },
+            {
+                "city": "茂名市",
+                "province": "广东省",
+                "comfort_days": 19
+            }
+        ],
+        "2024-04": [
+            {
+                "city": "衡阳市",
+                "province": "湖南省",
+                "comfort_days": 42
+            },
+            {
+                "city": "东莞市",
+                "province": "广东省",
+                "comfort_days": 30
+            },
+            {
+                "city": "云浮市",
+                "province": "广东省",
+                "comfort_days": 30
+            },
+            {
+                "city": "佛山市",
+                "province": "广东省",
+                "comfort_days": 30
+            },
+            {
+                "city": "广州市",
+                "province": "广东省",
+                "comfort_days": 30
+            }
+        ],
+        "2024-05": [
+            {
+                "city": "衡阳市",
+                "province": "湖南省",
+                "comfort_days": 48
+            },
+            {
+                "city": "东莞市",
+                "province": "广东省",
+                "comfort_days": 31
+            },
+            {
+                "city": "中山市",
+                "province": "广东省",
+                "comfort_days": 31
+            },
+            {
+                "city": "云浮市",
+                "province": "广东省",
+                "comfort_days": 31
+            },
+            {
+                "city": "佛山市",
+                "province": "广东省",
+                "comfort_days": 31
+            }
+        ],
+        "2024-06": [
+            {
+                "city": "南通市",
+                "province": "江苏省",
+                "comfort_days": 52
+            },
+            {
+                "city": "衡阳市",
+                "province": "湖南省",
+                "comfort_days": 44
+            },
+            {
+                "city": "乐山市",
+                "province": "四川省",
+                "comfort_days": 30
+            },
+            {
+                "city": "南充市",
+                "province": "四川省",
+                "comfort_days": 30
+            },
+            {
+                "city": "宜宾市",
+                "province": "四川省",
+                "comfort_days": 30
+            }
+        ],
+        "2024-07": [
+            {
+                "city": "临沧市",
+                "province": "云南省",
+                "comfort_days": 31
+            },
+            {
+                "city": "丹东市",
+                "province": "辽宁省",
+                "comfort_days": 31
+            },
+            {
+                "city": "保山市",
+                "province": "云南省",
+                "comfort_days": 31
+            },
+            {
+                "city": "大连市",
+                "province": "辽宁省",
+                "comfort_days": 31
+            },
+            {
+                "city": "广元市",
+                "province": "四川省",
+                "comfort_days": 31
+            }
+        ],
+        "2024-08": [
+            {
+                "city": "临汾市",
+                "province": "山西省",
+                "comfort_days": 31
+            },
+            {
+                "city": "丹东市",
+                "province": "辽宁省",
+                "comfort_days": 31
+            },
+            {
+                "city": "安顺市",
+                "province": "贵州省",
+                "comfort_days": 31
+            },
+            {
+                "city": "宝鸡市",
+                "province": "陕西省",
+                "comfort_days": 31
+            },
+            {
+                "city": "广元市",
+                "province": "四川省",
+                "comfort_days": 31
+            }
+        ],
+        "2024-09": [
+            {
+                "city": "南通市",
+                "province": "江苏省",
+                "comfort_days": 40
+            },
+            {
+                "city": "衡阳市",
+                "province": "湖南省",
+                "comfort_days": 30
+            },
+            {
+                "city": "龙岩市",
+                "province": "福建省",
+                "comfort_days": 30
+            },
+            {
+                "city": "威海市",
+                "province": "山东省",
+                "comfort_days": 29
+            },
+            {
+                "city": "河源市",
+                "province": "广东省",
+                "comfort_days": 29
+            }
+        ],
+        "2024-10": [
+            {
+                "city": "东莞市",
+                "province": "广东省",
+                "comfort_days": 31
+            },
+            {
+                "city": "中山市",
+                "province": "广东省",
+                "comfort_days": 31
+            },
+            {
+                "city": "佛山市",
+                "province": "广东省",
+                "comfort_days": 31
+            },
+            {
+                "city": "北海市",
+                "province": "广西壮族自治区",
+                "comfort_days": 31
+            },
+            {
+                "city": "厦门市",
+                "province": "福建省",
+                "comfort_days": 31
+            }
+        ],
+        "2024-11": [
+            {
+                "city": "三亚市",
+                "province": "海南省",
+                "comfort_days": 30
+            },
+            {
+                "city": "海口市",
+                "province": "海南省",
+                "comfort_days": 26
+            },
+            {
+                "city": "湛江市",
+                "province": "广东省",
+                "comfort_days": 25
+            },
+            {
+                "city": "汕头市",
+                "province": "广东省",
+                "comfort_days": 23
+            },
+            {
+                "city": "北海市",
+                "province": "广西壮族自治区",
+                "comfort_days": 21
+            }
+        ]
+    },
+    "yearly_top_cities": [
+        {
+            "city": "三亚市",
+            "province": "海南省",
+            "comfort_days": 263
+        },
+        {
+            "city": "海口市",
+            "province": "海南省",
+            "comfort_days": 229
+        },
+        {
+            "city": "衡阳市",
+            "province": "湖南省",
+            "comfort_days": 228
+        },
+        {
+            "city": "龙岩市",
+            "province": "福建省",
+            "comfort_days": 226
+        },
+        {
+            "city": "河源市",
+            "province": "广东省",
+            "comfort_days": 221
+        },
+        {
+            "city": "湛江市",
+            "province": "广东省",
+            "comfort_days": 204
+        },
+        {
+            "city": "潮州市",
+            "province": "广东省",
+            "comfort_days": 201
+        },
+        {
+            "city": "崇左市",
+            "province": "广西壮族自治区",
+            "comfort_days": 193
+        },
+        {
+            "city": "茂名市",
+            "province": "广东省",
+            "comfort_days": 191
+        },
+        {
+            "city": "广州市",
+            "province": "广东省",
+            "comfort_days": 187
+        }
+    ],
+    "monthly_province_rankings": {
+        "2023-12": [
+            {
+                "province": "海南省",
+                "avg_comfort_days": 23.0
+            },
+            {
+                "province": "广东省",
+                "avg_comfort_days": 6.6
+            },
+            {
+                "province": "广西壮族自治区",
+                "avg_comfort_days": 4.3
+            }
+        ],
+        "2024-01": [
+            {
+                "province": "海南省",
+                "avg_comfort_days": 25.0
+            },
+            {
+                "province": "广东省",
+                "avg_comfort_days": 2.3
+            },
+            {
+                "province": "广西壮族自治区",
+                "avg_comfort_days": 1.9
+            }
+        ],
+        "2024-02": [
+            {
+                "province": "海南省",
+                "avg_comfort_days": 22.0
+            },
+            {
+                "province": "广东省",
+                "avg_comfort_days": 7.5
+            },
+            {
+                "province": "广西壮族自治区",
+                "avg_comfort_days": 5.1
+            }
+        ],
+        "2024-03": [
+            {
+                "province": "海南省",
+                "avg_comfort_days": 28.5
+            },
+            {
+                "province": "广东省",
+                "avg_comfort_days": 14.8
+            },
+            {
+                "province": "广西壮族自治区",
+                "avg_comfort_days": 14.2
+            }
+        ],
+        "2024-04": [
+            {
+                "province": "广东省",
+                "avg_comfort_days": 28.4
+            },
+            {
+                "province": "广西壮族自治区",
+                "avg_comfort_days": 26.5
+            },
+            {
+                "province": "福建省",
+                "avg_comfort_days": 24.3
+            }
+        ],
+        "2024-05": [
+            {
+                "province": "广东省",
+                "avg_comfort_days": 30.1
+            },
+            {
+                "province": "广西壮族自治区",
+                "avg_comfort_days": 29.2
+            },
+            {
+                "province": "福建省",
+                "avg_comfort_days": 27.0
+            }
+        ],
+        "2024-06": [
+            {
+                "province": "江苏省",
+                "avg_comfort_days": 30.1
+            },
+            {
+                "province": "四川省",
+                "avg_comfort_days": 29.1
+            },
+            {
+                "province": "北京市",
+                "avg_comfort_days": 29.0
+            }
+        ],
+        "2024-07": [
+            {
+                "province": "贵州省",
+                "avg_comfort_days": 30.0
+            },
+            {
+                "province": "辽宁省",
+                "avg_comfort_days": 29.3
+            },
+            {
+                "province": "吉林省",
+                "avg_comfort_days": 26.9
+            }
+        ],
+        "2024-08": [
+            {
+                "province": "北京市",
+                "avg_comfort_days": 30.0
+            },
+            {
+                "province": "贵州省",
+                "avg_comfort_days": 28.8
+            },
+            {
+                "province": "辽宁省",
+                "avg_comfort_days": 28.8
+            }
+        ],
+        "2024-09": [
+            {
+                "province": "海南省",
+                "avg_comfort_days": 24.0
+            },
+            {
+                "province": "四川省",
+                "avg_comfort_days": 23.8
+            },
+            {
+                "province": "天津市",
+                "avg_comfort_days": 22.0
+            }
+        ],
+        "2024-10": [
+            {
+                "province": "福建省",
+                "avg_comfort_days": 29.9
+            },
+            {
+                "province": "海南省",
+                "avg_comfort_days": 29.5
+            },
+            {
+                "province": "广东省",
+                "avg_comfort_days": 28.9
+            }
+        ],
+        "2024-11": [
+            {
+                "province": "海南省",
+                "avg_comfort_days": 28.0
+            },
+            {
+                "province": "广东省",
+                "avg_comfort_days": 17.6
+            },
+            {
+                "province": "福建省",
+                "avg_comfort_days": 13.8
+            }
+        ]
+    },
+    "months": [
+        "2023年12月",
+        "2024年01月",
+        "2024年02月",
+        "2024年03月",
+        "2024年04月",
+        "2024年05月",
+        "2024年06月",
+        "2024年07月",
+        "2024年08月",
+        "2024年09月",
+        "2024年10月",
+        "2024年11月"
+    ],
+    "comfort_days": [
+        0.9,
+        0.5,
+        1.1,
+        2.7,
+        7.5,
+        14.4,
+        20.0,
+        16.4,
+        16.2,
+        15.0,
+        7.4,
+        3.1
+    ],
+    "provinces": [
+        "云南省",
+        "内蒙古自治区",
+        "北京市",
+        "吉林省",
+        "四川省",
+        "天津市",
+        "宁夏回族自治区",
+        "安徽省",
+        "山东省",
+        "山西省",
+        "广东省",
+        "广西壮族自治区",
+        "新疆维吾尔族自治区",
+        "江苏省",
+        "江西省",
+        "河北省",
+        "河南省",
+        "浙江省",
+        "海南省",
+        "湖北省",
+        "湖南省",
+        "甘肃省",
+        "福建省",
+        "西藏自治区",
+        "贵州省",
+        "辽宁省",
+        "陕西省",
+        "青海省",
+        "黑龙江"
+    ],
+    "province_comfort_days": [
+        6.9,
+        4.8,
+        9.0,
+        5.3,
+        11.2,
+        7.7,
+        3.3,
+        7.3,
+        8.6,
+        5.6,
+        14.8,
+        14.2,
+        5.9,
+        7.1,
+        9.3,
+        8.0,
+        9.6,
+        8.1,
+        20.5,
+        8.3,
+        11.0,
+        3.4,
+        13.1,
+        0.0,
+        8.6,
+        7.5,
+        7.9,
+        0.0,
+        3.8
+    ],
+    "total_cities": 252,
+    "avg_comfort_days": 105.2,
+    "max_comfort_days": 263,
+    "temp_comfort_rate": 75,
+    "humidity_comfort_rate": 70,
+    "air_quality_rate": 85
+}

@@ -1,0 +1,307 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气数据分析平台</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}?v=1">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://geo.datav.aliyun.com/areas_v3/bound/100000_full.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Left Panel -->
+        <div class="side-panel">
+            <div class="data-card">
+                <h3>年度舒适城市TOP10</h3>
+                <div id="topCitiesChart" style="height: 320px;"></div>
+            </div>
+            <div class="data-card">
+                <h3>月度舒适城市数</h3>
+                <div id="monthly-city-chart" style="height: 280px;"></div>
+            </div>
+        </div>
+
+        <!-- Center Map -->
+        <div class="map-container">
+            <div class="header">中国城市舒适度分布图</div>
+            <div class="map-controls" style="text-align: center; margin-bottom: 10px;">
+                {% for month in months %}
+                <button onclick="updateMap('{{ month }}')" class="month-btn" data-month="{{ month }}">{{ month }}月</button>
+                {% endfor %}
+            </div>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-value" id="total-cities">0</div>
+                    <div class="stat-label">统计城市数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="avg-comfort-days">0</div>
+                    <div class="stat-label">平均舒适天数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="max-comfort-days">0</div>
+                    <div class="stat-label">最大舒适天数</div>
+                </div>
+            </div>
+            <div id="china-map" style="height: 900px; width: 100%;"></div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="side-panel">
+            <div class="data-card">
+                <h3>省份舒适度排名</h3>
+                <div id="province-chart" style="height: 700px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add data injection script before main script -->
+    <script type="text/javascript">
+        // 解析所有JSON数据
+        window.WEATHER_DATA = JSON.parse('{{ chart_data|escapejs }}');
+        window.STATISTICS = JSON.parse('{{ statistics|escapejs }}');
+        window.MAP_DATA = JSON.parse('{{ map_data|escapejs }}');
+        window.TOP_CITIES_DATA = JSON.parse('{{ top_comfort_cities|escapejs }}');
+    </script>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化所有图表
+            const monthlyChart = echarts.init(document.getElementById('monthly-city-chart'));
+            const chinaMap = echarts.init(document.getElementById('china-map'));
+            const provinceChart = echarts.init(document.getElementById('province-chart'));
+            const topCitiesChart = echarts.init(document.getElementById('topCitiesChart'));
+
+            // 更新统计显示
+            document.getElementById('total-cities').textContent = window.STATISTICS.total_cities;
+            document.getElementById('avg-comfort-days').textContent = window.STATISTICS.avg_comfort_days;
+            document.getElementById('max-comfort-days').textContent = window.STATISTICS.max_comfort_days;
+
+            // 地图配置
+            const mapOption = {
+                title: {
+                    text: '全国城市舒适度分布',
+                    textStyle: { color: '#fff' },
+                    top: 50,
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: function(params) {
+                        if (params.seriesType === 'scatter') {
+                            return params.data.name + '<br/>舒适天数: ' + params.data.comfort_days + '天';
+                        }
+                        return params.name + ': ' + params.value + '天';
+                    }
+                },
+                visualMap: {
+                    min: 0,
+                    max: 300,
+                    text: ['高', '低'],
+                    realtime: false,
+                    calculable: true,
+                    inRange: {
+                        color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', 
+                               '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
+                    },
+                    textStyle: { color: '#fff' }
+                },
+                geo: {
+                    map: 'china',
+                    roam: true,
+                    emphasis: {
+                        label: { show: true, color: '#fff' },
+                        itemStyle: { areaColor: '#2a333d' }
+                    },
+                    itemStyle: {
+                        areaColor: '#323c48',
+                        borderColor: '#404a59'
+                    }
+                },
+                series: [
+                    {
+                        name: '省份舒适度',
+                        type: 'map',
+                        geoIndex: 0,
+                        data: []
+                    },
+                    {
+                        name: '舒适城市',
+                        type: 'scatter',
+                        coordinateSystem: 'geo',
+                        symbol: 'circle',
+                        symbolSize: 8,
+                        itemStyle: {
+                            color: '#FFD700',
+                            borderColor: '#fff',
+                            borderWidth: 1
+                        },
+                        emphasis: {
+                            itemStyle: {
+                                color: '#FFA500',
+                                borderWidth: 2,
+                                shadowBlur: 10,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        },
+                        data: []
+                    }
+                ]
+            };
+
+            // 更新地图的函数
+            window.updateMap = function(month) {
+                const buttons = document.querySelectorAll('.month-btn');
+                buttons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.month === month.toString());
+                });
+
+                const monthData = window.MAP_DATA.province_data[month] || [];
+                const comfortCities = window.MAP_DATA.comfort_cities[month] || [];
+                
+                chinaMap.setOption({
+                    title: { text: `${month}月全国城市舒适度分布` },
+                    series: [
+                        { data: monthData },
+                        { data: comfortCities }
+                    ]
+                });
+            };
+
+            // 初始化地图
+            chinaMap.setOption(mapOption);
+            updateMap('1');
+
+            // 初始化月度城市图表
+            initializeMonthlyChart(monthlyChart, window.WEATHER_DATA);
+
+            // 初始化省份图表
+            initializeProvinceChart(provinceChart, window.WEATHER_DATA);
+
+            // 初始化Top10城市图表
+            topCitiesChart.setOption({
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' },
+                    formatter: function(params) {
+                        return params[0].name + ' (' + window.TOP_CITIES_DATA.provinces[params[0].dataIndex] + ')<br/>' +
+                               '舒适天数: ' + params[0].value;
+                    }
+                },
+                grid: {
+                    left: '30%',
+                    right: '4%',
+                    bottom: '3%',
+                    top: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    name: '舒适天数',
+                    nameTextStyle: { color: '#fff' },
+                    axisLabel: { color: '#fff' }
+                },
+                yAxis: {
+                    type: 'category',
+                    data: window.TOP_CITIES_DATA.cities.reverse(),
+                    axisLabel: { color: '#fff' }
+                },
+                series: [{
+                    name: '舒适天数',
+                    type: 'bar',
+                    data: window.TOP_CITIES_DATA.values.reverse(),
+                    barWidth: '40%',
+                    itemStyle: { color: '#1890ff' },
+                    emphasis: {
+                        itemStyle: { color: '#40a9ff' }
+                    }
+                }]
+            });
+
+            // 监听窗口大小变化
+            window.addEventListener('resize', function() {
+                monthlyChart.resize();
+                chinaMap.resize();
+                provinceChart.resize();
+                topCitiesChart.resize();
+            });
+        });
+
+        // 月度城市图表初始化函数
+        function initializeMonthlyChart(chart, data) {
+            const option = {
+                tooltip: { trigger: 'axis' },
+                grid: {
+                    left: '8%',
+                    right: '4%',
+                    bottom: '10%',
+                    top: '10%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: data.months.map(month => month.split('年')[1].split('月')[0]),
+                    axisLabel: {
+                        color: '#fff',
+                        interval: 0
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLabel: { color: '#fff' }
+                },
+                series: [{
+                    name: '舒适天数',
+                    type: 'bar',
+                    data: data.comfort_days,
+                    itemStyle: { color: '#1890ff' }
+                }]
+            };
+            chart.setOption(option);
+        }
+
+        // 省份图表初始化函数
+        function initializeProvinceChart(chart, data) {
+            const sortedData = data.provinces.map((province, index) => ({
+                province: province,
+                days: data.province_comfort_days[index]
+            })).sort((a, b) => a.days - b.days);
+
+            const option = {
+                tooltip: { trigger: 'axis' },
+                grid: {
+                    left: '0%',
+                    right: '5%',
+                    bottom: '3%',
+                    top: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    axisLabel: { color: '#fff' }
+                },
+                yAxis: {
+                    type: 'category',
+                    data: sortedData.map(item => item.province),
+                    axisLabel: {
+                        color: '#fff',
+                        interval: 0,
+                        margin: 8
+                    }
+                },
+                series: [{
+                    name: '舒适天数',
+                    type: 'bar',
+                    data: sortedData.map(item => item.days),
+                    itemStyle: { color: '#1890ff' }
+                }]
+            };
+            chart.setOption(option);
+        }
+    </script>
+
+    <script src="{% static 'js/china.js' %}"></script>
+</body>
+</html>
