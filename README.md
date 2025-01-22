@@ -6,6 +6,9 @@
 ## Overview
 A comprehensive Python-based weather data analysis system designed to process and visualize weather data from various cities across China. The system incorporates a data processing pipeline, analysis tools, and a web visualization interface, enabling users to gain deep insights into weather patterns and trends across different cities.
 
+![image](https://github.com/user-attachments/assets/11c601cc-23d9-4514-803a-17d10fb8b925)
+![image](https://github.com/user-attachments/assets/2b1898c3-4478-4e87-9dc0-a571860b4847)
+
 ## Key Features
 ### Data Processing Pipeline
 - **Daily/Monthly/Yearly Data Processing**
